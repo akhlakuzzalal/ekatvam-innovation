@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#fefbff] overflow-x-hidden scroll-smooth font-serif dark:bg-dark_bg max-w-[2000px] mx-auto;
+  }
+
+  p {
+    @apply text-base dark:text-dark_text;
+  }
+
+  /* headings */
+  h1 {
+    @apply text-4xl md:text-6xl font-bold dark:text-dark_text;
+  }
+
+  h3 {
+    @apply text-3xl font-bold dark:text-dark_text;
+  }
+
+  h6 {
+    @apply text-base font-bold dark:text-dark_text;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .dark-card-bg {
+    @apply bg-dark_primary;
+  }
+  .btn {
+    @apply px-3 md:px-12 py-3 text-white dark:text-dark_text text-base md:text-xl ml-2 rounded-full;
+  }
+  .heading_md {
+    @apply text-3xl;
+  }
+  .heading_sm {
+    @apply text-xl;
+  }
 }
