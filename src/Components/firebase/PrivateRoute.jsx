@@ -6,9 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   console.log(loading);
   if (!user?.email) {
-    return (
-      <div>{loading ? <div>Please wait</div> : <Navigate to="/home" />}</div>
-    );
+    return <Navigate to="/home" />;
   }
 
   return children;
