@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineExclamationCircle, AiOutlineMenuFold } from 'react-icons/ai';
 import { FaUserFriends } from 'react-icons/fa';
 import { MdOutlineCreate } from 'react-icons/md';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../../images/logo.png';
+import useAuth from '../firebase/useAuth';
 
 const Dashboard = () => {
-  const [doctor, setDoctor] = useState({});
+  const { logOut } = useAuth();
   const [menu, setMenu] = useState('allusers');
-  useEffect(() => {
-    fetch('https://619f39821ac52a0017ba467e.mockapi.io/DoctorDetails')
-      .then((res) => res.json())
-      .then((data) => setDoctor(data[0]));
-  }, []);
   return (
     <div id="dashboard" className="grid grid-cols-6">
       <div
@@ -55,6 +51,12 @@ const Dashboard = () => {
           </div>
           {/* menu bottom */}
           <div className="w-full">
+            <button
+              onClick={logOut}
+              className="w-11/12 py-2 mx-auto my-2 bg-fuchsia-600 text-white rounded-lg"
+            >
+              Log Out
+            </button>
             <span className="flex items-center space-x-2 pb-5 border-b-[1px] border-gray-400">
               <AiOutlineExclamationCircle size={20} />
               <h6>Help</h6>
