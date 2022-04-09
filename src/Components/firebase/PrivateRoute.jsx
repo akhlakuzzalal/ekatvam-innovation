@@ -3,9 +3,12 @@ import { Navigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  console.log(loading);
   if (!user?.email) {
-    return <Navigate to="/home" replace />;
+    return (
+      <div>{loading ? <div>Please wait</div> : <Navigate to="/home" />}</div>
+    );
   }
 
   return children;

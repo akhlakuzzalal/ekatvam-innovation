@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Dashboard from './Components/Dashboard/Dashboard';
@@ -7,8 +9,13 @@ import SingleUser from './Components/Dashboard/Items/SingleUser';
 import PrivateRoute from './Components/firebase/PrivateRoute';
 import Home from './Components/Home';
 import Register from './Components/Register';
+import { fetchAllUsers } from './redux/Slices/usersSlice';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

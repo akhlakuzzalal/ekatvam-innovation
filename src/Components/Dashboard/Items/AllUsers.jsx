@@ -1,15 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const AllUsers = () => {
   const navigate = useNavigate();
-  const [allUsers, setAllUsers] = useState([]);
-  useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/users')
-      .then((res) => setAllUsers(res.data));
-  }, []);
+  const allUsers = useSelector((state) => state.users.users);
   console.log(allUsers);
   return (
     <div>
