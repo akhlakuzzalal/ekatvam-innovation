@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 import { setUsers } from '../../../redux/Slices/usersSlice';
 
 const Create = () => {
@@ -19,7 +20,18 @@ const Create = () => {
     const body = { address, name, username, email, phone, website };
     axios
       .post('https://jsonplaceholder.typicode.com/users', body)
-      .then((res) => dispatch(setUsers(res.data)));
+      .then((res) => {
+        dispatch(setUsers(res.data));
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => {
+          reset();
+        });
+      });
   };
   return (
     <div className="grid grid-cols-2">

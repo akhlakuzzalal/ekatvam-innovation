@@ -34,15 +34,12 @@ const useFirebase = () => {
   };
   //   log Out
   const logOut = () => {
-    setLoading(true);
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        setLoading(false);
       })
       .catch((error) => {
         // An error happened.
-        setLoading(false);
       });
   };
   //   auth stage change

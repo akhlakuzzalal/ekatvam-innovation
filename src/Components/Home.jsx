@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from './firebase/useAuth';
 
@@ -80,7 +80,6 @@ const Home = () => {
   }
   return (
     <>
-      {loading ? <div></div> : <Navigate to={'/dashboard'} />}
       <div className="flex justify-center h-screen items-center">
         {!user?.email ? (
           <div className="flex-1 px-3 max-w-[500px] mx-auto">
@@ -182,6 +181,7 @@ const Home = () => {
             >
               Log Out
             </button>
+            {navigate('/dashboard')}
           </div>
         )}
         <div className="hidden md:block w-full md:w-1/2 px-3 pt-24 pointer-events-none">
