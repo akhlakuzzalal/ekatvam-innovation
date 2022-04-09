@@ -34,7 +34,7 @@ const Create = () => {
       });
   };
   return (
-    <div className="grid grid-cols-2">
+    <div className="md:grid md:grid-cols-2">
       <div className="w-9/12 mx-auto">
         <h3 className="text-center py-5">Fill the Form</h3>
         <form
@@ -127,7 +127,7 @@ const Create = () => {
           />
         </form>
       </div>
-      <div className="flex items-center h-full">
+      <div className="items-center h-full hidden md:flex">
         <img
           className="w-full"
           src="https://www.pngitem.com/pimgs/m/196-1961460_fill-up-form-png-clipart-png-download-fill.png"

@@ -18,10 +18,11 @@ const SingleUser = () => {
   console.log(user);
   return (
     <div className="h-full">
-      <div className="h-1/4 bg-slate-200 w-full"></div>
+      <div className="h-1/4 bg-slate-200 w-full hidden md:block"></div>
       <div className="w-11/12 mx-auto -mt-20 bg-white">
         {/* banner */}
-        <div>
+
+        <div className="hidden md:block">
           <div className="flex items-center space-x-48 px-6">
             <div className="flex items-center space-x-2">
               <img
@@ -45,7 +46,10 @@ const SingleUser = () => {
             <h6>Team</h6>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-6 mt-7">
+        <div className="md:grid md:grid-cols-3 gap-6 mt-24 md:mt-10">
+          <h6 className="text-center font-bold py-3 block md:hidden">
+            About {user?.name}
+          </h6>
           {/* personal Information */}
           <div className="col-span-1 border-[1px] border-zinc-300">
             <h6 className="py-3 bg-zinc-200 pl-5">Personal Information</h6>

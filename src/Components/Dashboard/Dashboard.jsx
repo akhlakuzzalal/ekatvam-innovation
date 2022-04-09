@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AiOutlineExclamationCircle, AiOutlineMenuFold } from 'react-icons/ai';
+import { BiLogOut } from 'react-icons/bi';
 import { FaUserFriends } from 'react-icons/fa';
 import { MdOutlineCreate } from 'react-icons/md';
 import { Link, Outlet } from 'react-router-dom';
@@ -32,7 +33,7 @@ const Dashboard = () => {
                   }  hover:text-white hover:bg-[#0087c6] px-3 py-2 rounded-md`}
                 >
                   <FaUserFriends size={20} />
-                  <h6 className="font-bold">All Users</h6>
+                  <h6 className="font-bold hidden md:block">All Users</h6>
                 </Link>
               </li>
               <li>
@@ -44,7 +45,7 @@ const Dashboard = () => {
                   }  hover:text-white hover:bg-[#0087c6] px-3 py-2 rounded-md`}
                 >
                   <MdOutlineCreate size={20} />
-                  <h6 className="font-bold">Create</h6>
+                  <h6 className="font-bold hidden md:block">Create</h6>
                 </Link>
               </li>
             </ul>
@@ -53,9 +54,10 @@ const Dashboard = () => {
           <div className="w-full">
             <button
               onClick={logOut}
-              className="w-11/12 py-2 mx-auto my-2 bg-fuchsia-600 text-white rounded-lg"
+              className="w-11/12 flex items-center py-2 justify-center space-x-2 mx-auto my-2 bg-fuchsia-600 text-white rounded-lg"
             >
-              Log Out
+              <BiLogOut size={20} />
+              <span className="hidden md:block">Log Out</span>
             </button>
             <span className="flex items-center space-x-2 pb-5 border-b-[1px] border-gray-400">
               <AiOutlineExclamationCircle size={20} />
